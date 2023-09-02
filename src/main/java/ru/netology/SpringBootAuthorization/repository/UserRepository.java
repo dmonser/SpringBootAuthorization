@@ -1,6 +1,7 @@
 package ru.netology.SpringBootAuthorization.repository;
 
 import org.hibernate.validator.constraints.ModCheck;
+import org.springframework.stereotype.Repository;
 import ru.netology.SpringBootAuthorization.controller.Authorities;
 
 import java.util.Collection;
@@ -9,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+@Repository
 public class UserRepository {
 
     private final ConcurrentHashMap<String, String> data = new ConcurrentHashMap<>(Map.of("Ivan", "1111", "Peter", "2222",
