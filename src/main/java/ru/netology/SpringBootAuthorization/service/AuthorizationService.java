@@ -1,6 +1,7 @@
-package ru.netology.SpringBootAuthorization.controller;
+package ru.netology.SpringBootAuthorization.service;
 
 import org.springframework.stereotype.Service;
+import ru.netology.SpringBootAuthorization.controller.Authorities;
 import ru.netology.SpringBootAuthorization.excetion.InvalidCredentials;
 import ru.netology.SpringBootAuthorization.excetion.UnauthorizedUser;
 import ru.netology.SpringBootAuthorization.repository.UserRepository;
@@ -9,13 +10,13 @@ import java.util.List;
 
 @Service
 public class AuthorizationService {
-    UserRepository userRepository;
+    final UserRepository userRepository;
 
-    private AuthorizationService (UserRepository repository) {
+    public AuthorizationService (UserRepository repository) {
         this.userRepository = repository;
     }
 
-    List<Authorities> getAuthorities(String user, String password) {
+    public List<Authorities> getAuthorities(String user, String password) {
         if (isEmpty(user) || isEmpty(password)) {
             throw new InvalidCredentials("User name or password is empty");
         }

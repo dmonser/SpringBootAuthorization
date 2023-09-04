@@ -3,14 +3,15 @@ package ru.netology.SpringBootAuthorization.controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import ru.netology.SpringBootAuthorization.service.AuthorizationService;
 
 import java.util.List;
 
 @RestController
 public class AuthorizationController {
-    AuthorizationService service;
+    final AuthorizationService service;
 
-    private AuthorizationController (AuthorizationService service) {
+    public AuthorizationController (AuthorizationService service) {
         this.service = service;
     }
 
